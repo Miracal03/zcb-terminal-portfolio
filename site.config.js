@@ -64,7 +64,7 @@ window.SITE_CONFIG = {
       services: "Electron / WebGL 2 / GLSL / desktopCapturer",
       image: "assets/whiteflash-preview.png",
       alt: "WhiteFlash 的桌面白闪滤镜网页预览界面",
-      demo: "whiteflash"
+      demo: "whiteflash.html"
     }
   ],
   logs: [
