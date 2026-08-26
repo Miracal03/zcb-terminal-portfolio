@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WhiteFlash 网页实验台：一个受控的局部白闪滤镜预览。">
+  <meta name="theme-color" content="#080b09">
+  <title>WhiteFlash / Safe Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="whiteflash-page-body">
+  <a class="skip-link" href="#whiteflashLab">跳至实验台</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="返回个人网站首页">
+      <span class="brand__mark">Z</span>
+      <span>ZCB / AI LAB</span>
+    </a>
+    <nav class="desktop-nav" aria-label="页面导航">
+      <a href="index.html#work"><span>00</span> PORTFOLIO</a>
+      <a class="is-active" href="whiteflash.html"><span>01</span> WHITEFLASH</a>
+    </nav>
+    <div class="header-tools">
+      <a class="icon-button" href="index.html#work" aria-label="返回项目列表" title="返回项目列表">
+        <i data-lucide="arrow-left" aria-hidden="true"></i>
+      </a>
+      <span class="live-time" id="liveTime">00:00:00 HKT</span>
+    </div>
+  </header>
+
+  <main class="whiteflash-page-main">
+    <section class="whiteflash-page-hero">
+      <div>
+        <p class="section-code mono">DESKTOP FILTER / 01</p>
+        <h1>WhiteFlash<br><span>安全实验台</span></h1>
+        <p class="whiteflash-page-hero__lead">把桌面捕获、WebGL 轮廓与低频白闪组合成一个可调节的视觉滤镜。这里是浏览器内的局部演示；完整多显示器覆盖请运行 Windows 桌面版。</p>
+      </div>
+      <div class="whiteflash-page-hero__meta mono">
+        <div><span>RUNTIME</span><strong>WEBGL 2 / SAFE AREA</strong></div>
+        <div><span>DEFAULT</span><strong>24% / 0.35 Hz</strong></div>
+        <div><span>DESKTOP</span><strong>WINDOWS / ELECTRON</strong></div>
+      </div>
+    </section>
+
+    <section class="whiteflash-lab whiteflash-lab--standalone" id="whiteflashLab" aria-labelledby="whiteflashTitle">
+      <div class="whiteflash-lab__head">
+        <div>
+          <p class="mono">WEBGL FILTER / SAFE PREVIEW</p>
+          <h2 id="whiteflashTitle">WhiteFlash 实验台</h2>
+        </div>
+        <span class="whiteflash-lab__state mono" id="whiteflashState"><i></i> STANDBY</span>
+      </div>
+
+      <div class="whiteflash-lab__grid">
+        <div class="whiteflash-preview" id="whiteflashPreview">
+          <div class="whiteflash-preview__desktop" aria-hidden="true">
+            <div class="whiteflash-preview__bar"><span>WHITEFLASH://DESKTOP_01</span><span>15:42</span></div>
+            <div class="whiteflash-preview__window">
+              <span class="whiteflash-preview__orb"></span>
+              <div class="whiteflash-preview__code mono">
+                <span>vec3 whiteInk = vec3(1.0);</span>
+                <span>edge = sobel(frame);</span>
+                <span>output = mix(source, whiteInk, pulse);</span>
+              </div>
+            </div>
+            <div class="whiteflash-preview__dock"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="whiteflash-preview__wash" id="whiteflashWash" aria-hidden="true"></div>
+          <div class="whiteflash-preview__warning mono">PREVIEW AREA / NOT FULL SCREEN</div>
+        </div>
+
+        <div class="whiteflash-controls">
+          <div class="whiteflash-controls__notice">
+            <i data-lucide="triangle-alert" aria-hidden="true"></i>
+            <p><strong>动态闪光提示</strong><br>预览默认暂停并限制在左侧区域。不适、头晕或对闪光敏感时请勿启动。</p>
+          </div>
+
+          <label class="whiteflash-control" for="flashIntensity">
+            <span>白闪强度</span><output id="flashIntensityOut">24%</output>
+            <input id="flashIntensity" type="range" min="6" max="42" step="1" value="24">
+          </label>
+          <label class="whiteflash-control" for="flashFrequency">
+            <span>白闪频率</span><output id="flashFrequencyOut">0.35 Hz</output>
+            <input id="flashFrequency" type="range" min="0.15" max="0.8" step="0.05" value="0.35">
+          </label>
+
+          <div class="whiteflash-controls__actions">
+            <button class="primary-action" id="flashToggle" type="button">
+              <span>启动局部预览</span><i data-lucide="play" aria-hidden="true"></i>
+            </button>
+            <a class="secondary-action" href="https://github.com/Miracal03/BlackFlash" target="_blank" rel="noreferrer">
+              <span>查看桌面程序</span><i data-lucide="github" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p class="whiteflash-controls__note mono">WINDOWS / ELECTRON 37 / WEBGL 2 / MULTI-DISPLAY</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="whiteflash-page-notes" aria-labelledby="whiteflashNotesTitle">
+      <div>
+        <p class="section-code mono">IMPLEMENTATION NOTES</p>
+        <h2 id="whiteflashNotesTitle">从网页预览<br>到桌面覆盖</h2>
+      </div>
+      <div class="whiteflash-page-notes__list">
+        <article><span class="mono">01</span><h3>局部且可控</h3><p>网页演示只作用于实验台左侧区域，默认关闭，不会覆盖整页或自动闪烁。</p></article>
+        <article><span class="mono">02</span><h3>桌面级能力</h3><p>Windows 版使用 Electron desktopCapturer 捕获多显示器，并通过 WebGL 2 实时处理。</p></article>
+        <article><span class="mono">03</span><h3>随时退出</h3><p>桌面版可使用 Ctrl+Shift+Q 退出，网页端可直接关闭预览或返回项目页。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer mono">
+    <div><span>© <span id="year">2026</span> ZCB</span><span>WHITEFLASH / SAFE PREVIEW</span></div>
+    <div class="footer-links"><a href="index.html#work">Portfolio</a><a href="https://github.com/Miracal03/BlackFlash" target="_blank" rel="noreferrer">GitHub</a></div>
+    <a href="#top" class="back-top" aria-label="返回页面顶部"><i data-lucide="arrow-up" aria-hidden="true"></i></a>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="whiteflash.js"></script>
+</body>
+</html>
