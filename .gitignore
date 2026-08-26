@@ -2,10 +2,10 @@
 *-mobile.png
 site-desktop.png
 site-mobile.png
+site-live.png
 style-board.html
 style-board-preview.png
 style-board-mobile.png
 smoke-check.cjs
 node_modules/
 .DS_Store
-
