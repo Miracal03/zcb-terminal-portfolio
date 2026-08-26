@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ZCB 的个人作品网站，关注产品设计、创意开发与数字体验。">
+  <meta name="theme-color" content="#080b09">
+  <title>ZCB / Digital Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要内容</a>
+
+  <div class="boot" id="boot" aria-live="polite">
+    <div class="boot__inner">
+      <div class="boot__head"><span>SYSTEM INITIALIZATION</span><span id="bootPercent">000%</span></div>
+      <div class="boot__log" id="bootLog">
+        <span>CHECKING MEMORY...</span>
+        <span>LOADING VISUAL CORE...</span>
+        <span>ESTABLISHING CONNECTION...</span>
+      </div>
+      <div class="boot__track"><span id="bootBar"></span></div>
+      <button class="boot__skip" id="bootSkip" type="button">SKIP</button>
+    </div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <span class="brand__mark">Z</span>
+      <span data-bind="callsign">ZCB / STUDIO</span>
+    </a>
+    <nav class="desktop-nav" aria-label="主要导航">
+      <a href="#profile" data-section-link="profile"><span>01</span> PROFILE</a>
+      <a href="#work" data-section-link="work"><span>02</span> WORK</a>
+      <a href="#log" data-section-link="log"><span>03</span> LOG</a>
+      <a href="#contact" data-section-link="contact"><span>04</span> CONTACT</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-button" id="soundToggle" type="button" aria-label="切换界面音效" aria-pressed="false" title="界面音效">
+        <i data-lucide="volume-x" aria-hidden="true"></i>
+      </button>
+      <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="mobileMenu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+      <span class="live-time" id="liveTime">00:00:00 HKT</span>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <nav aria-label="移动端导航">
+      <a href="#profile"><span>01</span> PROFILE</a>
+      <a href="#work"><span>02</span> WORK</a>
+      <a href="#log"><span>03</span> LOG</a>
+      <a href="#contact"><span>04</span> CONTACT</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="home" data-section="home">
+      <canvas class="signal-canvas" id="signalCanvas" aria-label="随指针变化的动态信号场"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="hero__status mono reveal">
+        <span class="status-light"></span>
+        <span>PORTFOLIO SYSTEM ONLINE</span>
+        <span class="hero__status-separator">/</span>
+        <span>BUILD 26.08</span>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow mono reveal">INDEPENDENT DEVELOPER<br>+ DIGITAL CREATOR</p>
+        <h1 class="hero__title reveal">
+          <span>I BUILD</span>
+          <span class="hero__title-invert">DIGITAL</span>
+          <span>SYSTEMS<span class="cursor-block">_</span></span>
+        </h1>
+        <p class="hero__statement reveal" data-bind="statement">把复杂系统，做成有辨识度的数字体验。</p>
+      </div>
+
+      <div class="hero__meta mono reveal">
+        <dl>
+          <div><dt>OPERATOR</dt><dd data-bind="name">ZCB</dd></div>
+          <div><dt>LOCATION</dt><dd data-bind="coordinates">22.3193 N / 114.1694 E</dd></div>
+          <div><dt>STATUS</dt><dd class="accent" data-bind="availability">接受 2026 年合作</dd></div>
+        </dl>
+      </div>
+
+      <a class="hero__scroll mono" href="#profile">
+        <span>EXPLORE INDEX</span>
+        <i data-lucide="arrow-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>PRODUCT DESIGN</span><b>◆</b><span>CREATIVE DEVELOPMENT</span><b>◆</b><span>DIGITAL IDENTITY</span><b>◆</b>
+        <span>PRODUCT DESIGN</span><b>◆</b><span>CREATIVE DEVELOPMENT</span><b>◆</b><span>DIGITAL IDENTITY</span><b>◆</b>
+      </div>
+    </div>
+
+    <section class="section profile" id="profile" data-section="profile">
+      <header class="section-head reveal">
+        <p class="section-code mono">01 / PROFILE</p>
+        <h2>关于操作员</h2>
+        <span class="section-index mono">[A]</span>
+      </header>
+
+      <div class="profile__layout">
+        <div class="profile__intro reveal">
+          <p class="profile__lead" data-bind="bio"></p>
+          <div class="profile__location mono">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <span data-bind="location">Hong Kong, CN</span>
+          </div>
+        </div>
+
+        <div class="stats reveal" id="stats"></div>
+      </div>
+
+      <div class="capabilities" id="capabilities"></div>
+    </section>
+
+    <section class="section work" id="work" data-section="work">
+      <header class="section-head reveal">
+        <p class="section-code mono">02 / SELECTED WORK</p>
+        <h2>已选择的系统</h2>
+        <span class="section-index mono">[B]</span>
+      </header>
+
+      <div class="filter-bar reveal" role="group" aria-label="筛选项目">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">全部 <span>04</span></button>
+        <button class="filter" type="button" data-filter="product" aria-pressed="false">产品 <span>01</span></button>
+        <button class="filter" type="button" data-filter="creative" aria-pressed="false">创意 <span>02</span></button>
+        <button class="filter" type="button" data-filter="identity" aria-pressed="false">品牌 <span>01</span></button>
+      </div>
+
+      <div class="project-list" id="projectList"></div>
+    </section>
+
+    <section class="section log" id="log" data-section="log">
+      <header class="section-head reveal">
+        <p class="section-code mono">03 / FIELD LOG</p>
+        <h2>近期记录</h2>
+        <span class="section-index mono">[C]</span>
+      </header>
+
+      <div class="log__layout">
+        <div class="log__signal reveal" aria-hidden="true">
+          <div class="radar"><span></span><i></i><b></b></div>
+          <p class="mono">RECEIVING<br>LOW-FREQUENCY<br>TRANSMISSION</p>
+        </div>
+        <div class="log-list" id="logList"></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" data-section="contact">
+      <div class="contact__beam" aria-hidden="true"></div>
+      <div class="contact__content reveal">
+        <p class="section-code mono">04 / OPEN CHANNEL</p>
+        <h2>有一个值得<br>实现的想法？</h2>
+        <p>讲讲你的项目、时间和目标。我通常会在两个工作日内回复。</p>
+        <div class="contact__actions">
+          <a class="primary-action" id="emailLink" href="mailto:hello@example.com">
+            <span>发送邮件</span><i data-lucide="send" aria-hidden="true"></i>
+          </a>
+          <button class="secondary-action" id="copyEmail" type="button">
+            <span>复制地址</span><i data-lucide="copy" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="contact__terminal mono reveal">
+        <div class="contact__terminal-head"><span>CONTACT.PROTOCOL</span><span>ENCRYPTION: NONE</span></div>
+        <div class="contact__terminal-body">
+          <p><span>&gt;</span> ping collaborator</p>
+          <p>RESPONSE: CHANNEL OPEN</p>
+          <p>ADDRESS: <a id="emailText" href="mailto:hello@example.com">hello@example.com</a></p>
+          <p class="accent">READY FOR TRANSMISSION_</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer mono">
+    <div>
+      <span>© <span id="year">2026</span> <span data-bind="name">ZCB</span></span>
+      <span>SYSTEM VERSION 1.0.0</span>
+    </div>
+    <div class="footer-links" id="footerLinks"></div>
+    <a href="#top" class="back-top" aria-label="返回页面顶部"><i data-lucide="arrow-up" aria-hidden="true"></i></a>
+  </footer>
+
+  <div class="toast mono" id="toast" role="status" aria-live="polite">ADDRESS COPIED TO CLIPBOARD</div>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="site.config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
