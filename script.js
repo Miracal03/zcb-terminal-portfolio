@@ -53,7 +53,7 @@
 
     document.getElementById("logList").innerHTML = config.logs.map((item) => `
       <article class="log-entry reveal">
-        <time datetime="${item.date.replaceAll(".", "-")}">${item.date}<br>${item.type}</time>
+        <span>${item.date}<br>${item.type}</span>
         <h3>${item.title}</h3>
         <i data-lucide="arrow-up-right" aria-hidden="true"></i>
       </article>
