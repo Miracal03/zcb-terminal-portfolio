@@ -23,9 +23,9 @@ window.SITE_CONFIG = {
   projects: [
     {
       id: "P-01",
-      year: "2026",
+      year: "CORE",
       title: "TECKV / 长上下文 KV Cache 压缩",
-      category: "creative",
+      category: "inference",
       categoryLabel: "大模型推理",
       description: "从标量头门控的排序不变性出发，将压缩问题重构为 Token-to-Head 路由并设计头自适应配额；在 4 类模型、16 项 LongBench 评测中，512 Token/KV 头预算下保留 96.36% FullKV 质量，最高降低 98.5% KV Cache 内存并提升 45.3% 解码吞吐。",
       services: "Python / PyTorch / Transformers / KV Cache",
@@ -34,9 +34,9 @@ window.SITE_CONFIG = {
     },
     {
       id: "P-02",
-      year: "2025",
+      year: "RAG",
       title: "医疗大模型领域知识注入与问答系统",
-      category: "product",
+      category: "rag",
       categoryLabel: "RAG 与模型评测",
       description: "将医疗知识注入拆解为 LoRA 参数化学习与 RAG 非参数化检索两条链路，完成数据处理、两阶段训练和统一评测；MedMCQA 准确率由 21.7% 提升至 52.7%，并通过消融定位泛化与知识冲突问题。",
       services: "Python / LoRA / SentenceTransformers / RAG / MedMCQA",
@@ -45,35 +45,22 @@ window.SITE_CONFIG = {
     },
     {
       id: "P-03",
-      year: "2025",
+      year: "RESEARCH",
       title: "Attention Head 协同优化研究",
-      category: "identity",
+      category: "research",
       categoryLabel: "科研与方案设计",
       description: "围绕 Task-KV、DuoAttention、PagedAttention/vLLM、GQA/MQA/MLA 等 34 项文献与开源方案，抽象 H_score 与 Priority 评分函数，设计热度评估、任务调度、差异化缓存分配与多维评估闭环。",
       services: "KV Cache / Attention / LongBench / MMLU / MBPP",
       image: "assets/project-form.jpg",
       alt: "黑白抽象艺术装置"
-    },
-    {
-      id: "P-04",
-      year: "2024",
-      title: "推理系统性能评测框架",
-      category: "creative",
-      categoryLabel: "工程实践",
-      description: "构建 LongBench、MMLU、MBPP 混合负载，围绕 TTFT、TPOT、Goodput 与关键 KV 足迹建立指标体系，为峰值显存降低 20%-30%、监控开销低于 2% 的优化目标提供可复现实验基础。",
-      services: "Linux / Git / Conda / Docker / FastAPI / ONNX",
-      image: "assets/project-city.jpg",
-      alt: "夜色中的城市建筑与灯光"
     }
   ],
   logs: [
-    { date: "2026.08.16", title: "从标量头门控到 Token-to-Head 路由", type: "RESEARCH" },
-    { date: "2026.07.28", title: "RAG 融合后准确率下降：一次消融诊断", type: "EXPERIMENT" },
-    { date: "2026.06.09", title: "TTFT、TPOT 与 Goodput 的推理评测笔记", type: "LAB NOTE" }
+    { date: "FOCUS.01", title: "从机制分析出发完成问题建模与算法设计", type: "MODELING" },
+    { date: "FOCUS.02", title: "用统一评测与消融实验验证技术结论", type: "EVALUATION" },
+    { date: "FOCUS.03", title: "从异常结果定位知识冲突与系统瓶颈", type: "ENGINEERING" }
   ],
   links: [
-    { label: "GitHub", href: "https://github.com/" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/" },
     { label: "Email", href: "mailto:zcb_ustc@mail.ustc.edu.cn" }
   ]
 };
