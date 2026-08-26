@@ -53,6 +53,18 @@ window.SITE_CONFIG = {
       services: "KV Cache / Attention / LongBench / MMLU / MBPP",
       image: "assets/project-form.jpg",
       alt: "黑白抽象艺术装置"
+    },
+    {
+      id: "P-04",
+      year: "DESKTOP",
+      title: "WhiteFlash / 桌面白闪滤镜",
+      category: "desktop",
+      categoryLabel: "桌面与图形工程",
+      description: "一个面向 Windows 多显示器的实时桌面滤镜。Electron 捕获屏幕，WebGL 2 通过 Gooch 分层、多尺度 Sobel 轮廓与纸张纤维生成白色发光笔触，并以受控的低频白闪覆盖桌面。",
+      services: "Electron / WebGL 2 / GLSL / desktopCapturer",
+      image: "assets/whiteflash-preview.png",
+      alt: "WhiteFlash 的桌面白闪滤镜网页预览界面",
+      demo: "whiteflash"
     }
   ],
   logs: [
